@@ -1,8 +1,7 @@
 *::before,
 *::after,
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -34,24 +33,21 @@ body {
   margin-bottom: 2rem;
   margin-top: 2rem;
   color: #eee;
-}
-
-.btn:active {
-  -webkit-transform: translateY(0.2rem);
-          transform: translateY(0.2rem);
-  -webkit-box-shadow: 0 0.1rem 0.1rem #333;
-          box-shadow: 0 0.1rem 0.1rem #333;
+  &:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0 0.1rem 0.1rem #333;
+  }
 }
 
 .quote {
   font-size: 1.8rem;
   padding: 1rem;
   text-align: center;
-}
 
-.quote::before {
-  content: "\201C";
-  font-size: 6rem;
+  &::before {
+    content: "\201C";
+    font-size: 6rem;
+  }
 }
 
 .author {
@@ -66,4 +62,3 @@ body {
   width: 60%;
   margin: 10rem auto;
 }
-/*# sourceMappingURL=style.css.map */
