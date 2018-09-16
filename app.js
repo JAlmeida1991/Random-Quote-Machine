@@ -1,3 +1,4 @@
+// Global variables:
 const button = document.querySelector(".btn");
 const quote = document.querySelector(".quote");
 const author = document.querySelector(".author");
@@ -10,13 +11,17 @@ const color = {
   blue: null
 };
 
-fetchAsyncAwait();
+// Event handler:
+
+button.addEventListener("click", fetchAsyncAwait);
+window.addEventListener("load", fetchAsyncAwait);
+
+// Helper functions
 
 // Version 3 using Async Await:
-
 async function fetchAsyncAwait() {
   try {
-    const req = await fetch("quotes.json");
+    const req = await fetch("./data/quotes.json");
     const res = await req.json();
     const randomNum = Math.round(Math.random() * res.length - 1);
     quote.textContent = res[randomNum].text;
@@ -31,13 +36,11 @@ async function fetchAsyncAwait() {
   }
 }
 
-button.addEventListener("click", fetchAsyncAwait);
-
-function generateRandomColor(colorObj) {
-  colorObj.red = Math.round(Math.random() * 255);
-  colorObj.green = Math.round(Math.random() * 255);
-  colorObj.blue = Math.round(Math.random() * 255);
-  return `rgb(${colorObj.red},${colorObj.green},${colorObj.blue})`;
+function generateRandomColor({ red, green, blue }) {
+  red = Math.round(Math.random() * 255);
+  green = Math.round(Math.random() * 255);
+  blue = Math.round(Math.random() * 255);
+  return `rgb(${red},${green},${blue})`;
 }
 
 function setColors() {
@@ -57,7 +60,7 @@ function loadError(err) {
   container.style.border = "none";
 
   // Set up styles for error
-  error.textContent = `${err} encountered`;
+  error.textContent = `Something went wrong... ${err}`;
   error.style.color = errorColor;
   error.style.textAlign = "center";
   error.style.fontSize = "3rem";
@@ -65,7 +68,7 @@ function loadError(err) {
   // error.style.fontWeight = 00;
 
   // Set up styles for title
-  title.textContent = "Error...";
+  title.textContent = "ERROR...";
   title.style.color = errorColor;
   title.style.fontSize = "6rem";
 

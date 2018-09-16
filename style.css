@@ -7,6 +7,11 @@
   padding: 0;
 }
 
+* {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 html {
   font-size: 62.5%;
 }

@@ -5,6 +5,11 @@
   margin: 0;
   padding: 0;
 }
+// This will transition the colors with a delay rather than instant
+// If include transition in previous selectors, quote icon will transition slower than the rest of the rest of the elements
+* {
+  transition: all 1s;
+}
 
 html {
   font-size: 62.5%;
