@@ -8,8 +8,8 @@
 }
 
 * {
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 html {
@@ -39,13 +39,15 @@ body {
   margin-bottom: 2rem;
   margin-top: 2rem;
   color: #eee;
+  -webkit-box-shadow: 0 0.3rem 0.4rem #333;
+          box-shadow: 0 0.3rem 0.4rem #333;
 }
 
 .btn:active {
-  -webkit-transform: translateY(0.2rem);
-          transform: translateY(0.2rem);
-  -webkit-box-shadow: 0 0.1rem 0.1rem #333;
-          box-shadow: 0 0.1rem 0.1rem #333;
+  -webkit-transform: translateY(0.1rem);
+          transform: translateY(0.1rem);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .quote {
@@ -65,7 +67,7 @@ body {
 }
 
 .container {
-  border-width: 0.1rem;
+  border-width: 0.25rem;
   border-style: solid;
   /* border-color: aquamarine; */
   width: 60%;

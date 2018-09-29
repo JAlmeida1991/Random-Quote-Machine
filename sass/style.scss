@@ -1,24 +1,4 @@
-*::before,
-*::after,
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-// This will transition the colors with a delay rather than instant
-// If include transition in previous selectors, quote icon will transition slower than the rest of the rest of the elements
-* {
-  transition: all 1s;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #eee;
-}
+@import "base";
 
 .title {
   text-align: center;
@@ -38,9 +18,10 @@ body {
   margin-bottom: 2rem;
   margin-top: 2rem;
   color: #eee;
+  box-shadow: 0 0.3rem 0.4rem #333;
   &:active {
-    transform: translateY(0.2rem);
-    box-shadow: 0 0.1rem 0.1rem #333;
+    transform: translateY(0.1rem);
+    box-shadow: none;
   }
 }
 
@@ -61,7 +42,7 @@ body {
 }
 
 .container {
-  border-width: 0.1rem;
+  border-width: 0.25rem;
   border-style: solid;
   /* border-color: aquamarine; */
   width: 60%;

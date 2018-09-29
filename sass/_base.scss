@@ -1,0 +1,21 @@
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+// This will transition the colors with a delay rather than instant
+// If include transition in previous selectors, quote icon will transition slower than the rest of the rest of the elements
+* {
+  transition: all 0.5s;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #eee;
+}
