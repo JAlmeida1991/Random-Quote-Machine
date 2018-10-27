@@ -18,7 +18,7 @@
   // Version 3 using Async Await:
   async function fetchAsyncAwait() {
     try {
-      const req = await fetch("../data/quotes.json");
+      const req = await fetch("/data/quotes.json");
       const res = await req.json();
       const randomNum = Math.round(Math.random() * (res.length - 1));
       quote.textContent = res[randomNum].text;
