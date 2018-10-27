@@ -1,17 +1,11 @@
 (function() {
   "use strict";
-  // Global variables:
+  // 'Global' variables:
   const button = document.querySelector(".btn");
   const quote = document.querySelector(".quote");
   const author = document.querySelector(".author");
   const title = document.querySelector(".title");
   const container = document.querySelector(".container");
-
-  const color = {
-    red: null,
-    green: null,
-    blue: null
-  };
 
   // Event handler:
 
@@ -24,7 +18,7 @@
   // Version 3 using Async Await:
   async function fetchAsyncAwait() {
     try {
-      const req = await fetch("./data/quotes.json");
+      const req = await fetch("../data/quotes.json");
       const res = await req.json();
       const randomNum = Math.round(Math.random() * (res.length - 1));
       quote.textContent = res[randomNum].text;
@@ -32,23 +26,22 @@
       setColors();
       // If for some reason fetch is unsuccessful, execute the following functions
     } catch (err) {
-      const error = err.name;
       quote.remove();
       button.remove();
       title.remove();
-      loadError(error);
+      loadError();
     }
   }
 
-  function generateRandomColor({ red, green, blue }) {
-    red = Math.round(Math.random() * 255);
-    green = Math.round(Math.random() * 255);
-    blue = Math.round(Math.random() * 255);
+  function generateRandomColor() {
+    const red = Math.round(Math.random() * 255);
+    const green = Math.round(Math.random() * 255);
+    const blue = Math.round(Math.random() * 255);
     return `rgb(${red},${green},${blue})`;
   }
 
   function setColors() {
-    const randColor = generateRandomColor(color);
+    const randColor = generateRandomColor();
     quote.style.color = randColor;
     author.style.color = randColor;
     title.style.color = randColor;
@@ -56,7 +49,7 @@
     container.style.borderColor = randColor;
   }
 
-  function loadError(err) {
+  function loadError() {
     const errorColor = "#D32F2F";
     const error = document.createElement("p");
 
