@@ -15,10 +15,9 @@
 
   // Helper functions
 
-  // Version 3 using Async Await:
   async function fetchAsyncAwait() {
     try {
-      const req = await fetch("/data/quotes.json");
+      const req = await fetch("./data/quotes.json");
       const res = await req.json();
       const randomNum = Math.round(Math.random() * (res.length - 1));
       quote.textContent = res[randomNum].text;
@@ -66,40 +65,3 @@
     container.appendChild(error);
   }
 })();
-
-//Version 1 using XMLHTttpRequest:
-
-// function ajaxRequest() {
-//   const xhr = new XMLHttpRequest();
-//   xhr.open("GET", "quotes.json", true);
-//   // Can also use onreadyStateChange, but would need to include this.readyState === 4 in if statement
-//   xhr.onload = function() {
-//     if (this.status === 200) {
-//       const parsedArr = JSON.parse(this.responseText);
-//       const randomNum = Math.round(Math.random() * parsedArr.length - 1);
-//       quote.textContent = parsedArr[randomNum].text;
-//       author.textContent = parsedArr[randomNum].from;
-//       setColors();
-//     }
-//   };
-//   xhr.onerror = function(err) {
-//     console.error(err);
-//   };
-//   xhr.send();
-// }
-
-// Version 2 using Fetch API:
-
-// function ajaxRequest() {
-//   fetch("quotes.json")
-//     .then(req => req.json())
-//     .then(res => {
-//       const randomNum = Math.round(Math.random() * res.length - 1);
-//       quote.textContent = res[randomNum].text;
-//       author.textContent = res[randomNum].from;
-//       setColors();
-//       // Need to return response in case it has an error
-//       return res;
-//     })
-//     .catch(err => console.error(err));
-// }
