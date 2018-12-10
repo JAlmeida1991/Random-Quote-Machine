@@ -5,9 +5,7 @@ const express = require("express"),
 
 app.use(express.static("dist"));
 
-app.get("/quotes", (req, res) => {
-  res.sendFile(__dirname + "/api/quotes.json");
-});
+app.get("/quotes", (req, res) => res.sendFile(__dirname + "/api/quotes.json"));
 
 app.get("/quotes/:id", async (req, res) => {
   const id = req.params.id;
@@ -23,5 +21,9 @@ app.get("/quotes/:id", async (req, res) => {
     res.status(400).send(e);
   }
 });
+
+// Default to index.html if route is not recognized
+
+app.get("*", (req, res) => res.sendFile(__dirname + "/dist/index.html"));
 
 app.listen(port, () => console.log(`server has started on port ${port}`));
