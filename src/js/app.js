@@ -1,3 +1,5 @@
+const regeneratorRuntime = require("regenerator-runtime");
+
 (function() {
   "use strict";
   // 'Global' variables:
@@ -17,7 +19,7 @@
 
   async function fetchAsyncAwait() {
     try {
-      const req = await fetch("./data/quotes.json");
+      const req = await fetch("/quotes");
       const res = await req.json();
       const randomNum = Math.round(Math.random() * (res.length - 1));
       quote.textContent = res[randomNum].text;
