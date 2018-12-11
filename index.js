@@ -1,13 +1,16 @@
 const express = require("express"),
   app = express(),
   port = process.env.PORT || 3000,
-  fsPromiseAPI = require("fs").promises;
+  fsPromiseAPI = require("fs").promises,
+  cors = require("cors");
 
 app.use(express.static("dist"));
 
-app.get("/quotes", (req, res) => res.sendFile(__dirname + "/api/quotes.json"));
+app.get("/quotes", cors(), (req, res) =>
+  res.sendFile(__dirname + "/api/quotes.json")
+);
 
-app.get("/quotes/:id", async (req, res) => {
+app.get("/quotes/:id", cors(), async (req, res) => {
   const id = req.params.id;
   try {
     const data = await fsPromiseAPI.readFile(
