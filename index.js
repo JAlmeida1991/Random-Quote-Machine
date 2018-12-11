@@ -17,7 +17,7 @@ app.get("/quotes/:id", cors(), async (req, res) => {
       __dirname + "/api/quotes.json",
       "utf8"
     );
-    const obj = JSON.parse(data)[id];
+    const obj = JSON.parse(data)[id - 1];
     if (!obj) return res.status(404).json({ error: "Post was not found..." });
     res.json(obj);
   } catch (e) {
