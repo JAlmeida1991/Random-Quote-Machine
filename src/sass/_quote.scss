@@ -1,0 +1,15 @@
+.quote {
+  font-size: 1.8rem;
+  padding: 1rem;
+  text-align: center;
+
+  &::before {
+    content: "\201C";
+    font-size: 6rem;
+  }
+}
+
+.author {
+  font-size: 1.8rem;
+  padding: 1rem;
+}

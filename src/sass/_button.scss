@@ -1,0 +1,18 @@
+.btn {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  font-weight: 900;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: #eee;
+  box-shadow: 0 0.3rem 0.4rem #333;
+  &:active {
+    transform: translateY(0.1rem);
+    box-shadow: none;
+  }
+}

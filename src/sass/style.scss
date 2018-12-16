@@ -1,50 +1,5 @@
 @import "base";
-
-.title {
-  text-align: center;
-  margin: 2rem auto;
-  font-size: 3rem;
-}
-
-.btn {
-  display: block;
-  margin: 0 auto;
-  border: none;
-  border-radius: 0.8rem;
-  padding: 1rem;
-  font-weight: 900;
-  outline: none;
-  cursor: pointer;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  color: #eee;
-  box-shadow: 0 0.3rem 0.4rem #333;
-  &:active {
-    transform: translateY(0.1rem);
-    box-shadow: none;
-  }
-}
-
-.quote {
-  font-size: 1.8rem;
-  padding: 1rem;
-  text-align: center;
-
-  &::before {
-    content: "\201C";
-    font-size: 6rem;
-  }
-}
-
-.author {
-  font-size: 1.8rem;
-  padding: 1rem;
-}
-
-.container {
-  border-width: 0.25rem;
-  border-style: solid;
-  /* border-color: aquamarine; */
-  width: 60%;
-  margin: 10rem auto;
-}
+@import "title";
+@import "quote";
+@import "button";
+@import "containers";
