@@ -1,4 +1,6 @@
-const regeneratorRuntime = require("regenerator-runtime");
+import regeneratorRuntime from "regenerator-runtime";
+import axios from "axios";
+
 import {
   button,
   quote,
@@ -10,14 +12,16 @@ import {
 
 async function fetchAsyncAwait() {
   try {
-    const req = await fetch("/quotes");
-    const res = await req.json();
+    const req = await axios("/quotes");
+    const res = req.data;
+
     const randomNum = Math.round(Math.random() * (res.length - 1));
     quote.textContent = res[randomNum].text;
     author.textContent = res[randomNum].from;
     setColors();
     // If for some reason fetch is unsuccessful, execute the following functions
   } catch (err) {
+    console.log(err);
     quote.remove();
     button.remove();
     title.remove();
